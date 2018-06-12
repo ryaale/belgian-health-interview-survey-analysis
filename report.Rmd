@@ -1,0 +1,24 @@
+---
+title: "Sampling Theory Report"
+author: "Alexander James Ryan  r0693898       Adityavarna Dehaleesan  r0690673"
+date: "14/6/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+
+
+# Critique of Papers
+
+
+
+
+
+
+
+
