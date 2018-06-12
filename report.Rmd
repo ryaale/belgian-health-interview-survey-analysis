@@ -1,21 +1,95 @@
 ---
-title: "Sampling Theory Report"
+pretitle: "KU Leuven"
+title: "Sampling Theory"
+subtitle: "Exam Project"
 author: "Alexander James Ryan  r0693898       Adityavarna Dehaleesan  r0690673"
 date: "14/6/2018"
 output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+setwd("~/Desktop/sampling-theory-assignment")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
 
+# Part One - Critical Reading (perhaps we can split into two parts?)
+
+## Introduction
 
 
-# Critique of Papers
 
 
+
+
+
+# Part Two - Modelling BMI
+
+## Introduction
+
+
+
+
+
+# Part Three - Design of Health Interview Survey
+
+## Introduction
+
+The choice on where to stratify and group populations is difficult. The goal is to create a sample that is representative of different levels of the population, so that at each level of analysis, we can form accurate estimands. Should the focus be on weighting regions, then perhaps some large cities in smaller regions become under-represented, and small cities in large regions become over-represented. Ultimately the strategy in which you choose to stratify a population, will over-represent some communities, and under-represent others, an implicit bias that is impossible to evade. The goal of sampling populations is to reduce this imbalance as much as possible, so every community is given a fairly weighted representation. 
+
+In this paper, we will discuss a variety of stratifyign strategies, to illustrate the complexity and variation in choosing sampling priorities. The first division is in the three different regions in Belgium, Wallonia, Brussels and Flanders.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+region_divion <- read_delim("region_divion.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+
+knitr::kable(x = region_divion, caption = "Proportioned weights at Region level")
+```
+
+Given that we have to exclude 3% of our total 35% sample of the Wallonia Region for the Germany community, it is important how we allocate the remaining 32% amongst the remaining communities. Depending on how we allocate, we could bias the results, over representing some regions, whilst under-representing others.
+
+For example, if we simply divided the 35% total allocation for the Wallonia Region, and divided by 5, we would be sampling 7% people from each region. Since for the Liege province, we have set aside 3% of that for the German community, we only have 4% left for the Arrondissements Huy (pop=189,661), Liege (pop=617,551), Verviers (pop=208,249). Liege is the largest Arrondissement in the Wallonia region, and we would find it severely under-represented if we use this stratifying strategy. 
+
+
+## Stratifying Strategy 1
+
+### Each Region weighting is devided equally between Provinces and Arrondissements
+
+Of the 35% allocated to Flemish Region, each of the different Provinces receives 7%. This 7% is then proportionally allocated to each Care Sector based on their respective populations. The same strategy is then used for the Wallonia Region, but first the set allocation of 3% to the German community is taken from 35%, leaving 32% to be allocated to the Walloon Provinces Thus each Walloon Province receives 6.4%, which is then proportionally allocated to each Arrondissement based on their respective populations.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+region_divion <- read_delim("option1_sample.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+
+knitr::kable(x = region_divion, caption = "Stratifying Strategy 1")
+```
+
+## Stratifying Strategy 2
+
+The 35% allocated to the Flemish Region is proportionally allocated to each Care Sector, based the proportion of their populations in respect to the total population of the Province. The same stratgey is used for the Wallonia region, and again, removing the 3% allocated to the German Community, leaving 32% to be proportionally allocated to the Arrondissements.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+region_divion <- read_delim("option2_sample.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+
+knitr::kable(x = region_divion, caption = "Stratifying Strategy 2")
+```
+
+## Stratifying Strategy 3
+
+ 
+
+
+
+
+
+
+
+
+# Part Four - Missing Data in the Belgian Health Interview Survey
+
+## Introduction
 
 
 
