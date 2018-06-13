@@ -74,6 +74,10 @@ The damage that non-response may cause to the survey data determined a strong re
 
 Based on results found below(name of section?) the method of sampling from the Belgian population. We have proprtioned allocation based on the populations of the respective Provinces, and then devided between the 15% sample. We have taken into account the German Community, and allocated them a set 3% of the total allocation.
 
+The method uses Simple Random Sampling, using the Floyd Ordered Hash Table Algorithm. It samples from the dataset, based on the Belgian Province variable, with a proportioned allocation.
+
+Missing data has been removed from the dataset.
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 province.sample <- read_delim("province.sample.csv", ";", escape_double = FALSE, trim_ws = TRUE)
@@ -83,22 +87,32 @@ knitr::kable(x = province.sample, caption = "Province Sampling")
 
 The SAS code we will use to perform this sampling strategy is thus:
 
+To apply the proc survey select function we first had to sort the dataset by Province in ascending order.
 
-title1 'Belgian Health Survey';
-title2 'Stratified Sampling of West-Vlaanderen';
-proc surveyselect data=bmi_voeg
-      method=sys rate=.02
-      seed=1234 out=SampleControl;
-   strata PROVINCE ALLOC=PROP;
-   control Type Usage;
+  proc sort data=_temp0.bmi_voeg out=work.sorted;  
+  by province;  
+
+Using the proc survey select function, we chose a rate of 15%, which is asking for a 15% sample of the dataset. The strata we chose is province, and the option we selected was allocation proportional, which tells the function to sample from the dataset, based on the proportion of the population in each Province.
+
+title1 'Belgian Health Survey';  
+title2 'Stratified Sampling of West-Vlaanderen';  
+proc surveyselect data=work.sorted  
+      rate=0.15 out=work.SampleControl;  
+   strata PROVINCE / ALLOC=PROP;  
+run;  
+
+proc means data=work.samplecontrol;  
 run;
 
-The method uses Simple Random Sampling, using the Floyd Ordered Hash Table Algorithm. It samples from the dataset, based on the Belgian Province variable, with a proportioned allocation.
 
-Missing data has been removed from the dataset.
+```{r sas.descriptive, echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+sas.descriptive <- read_delim("sas.descriptive.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 
+knitr::kable(x = sas.descriptive, caption = "Descriptive Statistics for BMI")
+```
 
-
+[ADD descriptive statistics for Province]
 
 
 
@@ -132,50 +146,12 @@ ds <- within(ds, {
   GHQ12 <- factor(GHQ12)
   GHQBIN <- factor(GHQBIN)
 })
-
-
-
-
-library(readr)
-data <- read_delim("bmi_voeg_1.csv", ";", escape_double = FALSE, 
-                   col_types = cols(
-                      REGION = col_factor(levels = c("1", "2", "3")),
-                      EDU3 = col_factor(levels = c("1", "2", "3")),
-                      FA3 = col_factor(levels = c("1", "2", "3")),
-                      AGEGR1 = col_factor(levels = c("0","1")), 
-                      AGEGR2 = col_factor(levels = c("0","1")), 
-                      AGEGR3 = col_factor(levels = c("0","1")), 
-                      AGEGR4 = col_factor(levels = c("0","1")),
-                      AGEGR5 = col_factor(levels = c("0","1")),
-                      AGEGR6 = col_factor(levels = c("0","1")),
-                      AGEGR7 = col_factor(levels = c("0","1")),
-                      EDUPRIM = col_factor(levels = c("0","1")),
-                      EDUSEC = col_factor(levels = c("0","1")),
-                      EDUHIGH = col_factor(levels = c("0","1")),
-                      INCLOW = col_factor(levels = c("0","1")),
-                      INMED = col_factor(levels = c("0","1")),
-                      INCHIG = col_factor(levels = c("0","1")),
-                      PROVINCE = col_factor(levels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")),
-                      BMI_NUM = col_factor(levels = c("1", "2", "3")), 
-                      HH = col_number(), 
-                      ID = col_character(), 
-                      SEX = col_factor(levels = c("1", "2")), 
-                      WFIN = col_number(), 
-                      FLA=col_factor(levels = c("0","1")), 
-                      BRU=col_factor(levels = c("0","1")),
-                      QHQBIN=col_factor(levels = c("0","1")),
-                      QHQ12 = col_factor(levels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")),
-                      WAL=col_factor(levels = c("0","1"))),  
-trim_ws = TRUE)
-
-
-
 ```
 
 
 ## Modelling BMI
 
-First we devided the variable BMI into an ordinal categorical variable. Then a ordinal logistic regression model was built. We used a stepwise iterative procedure to incrementally add variables, with AIC minimisation the target goal. The model we are left with is:
+We chose to remove records with missing values. First we devided the variable BMI into an ordinal categorical variable. Then a ordinal logistic regression model was built. We used a stepwise iterative procedure to incrementally add variables, with AIC minimisation the target goal. The model we are left with is:
 
 With a AIC score of 12973.46 and a residual deviance of 12939.46.
 
@@ -203,7 +179,7 @@ summary(model1)
 ```
 
 
-The coefficients from the model can be somewhat difficult to interpret because they are scaled in terms of logs. Another way to interpret logistic regression models is to convert the coefficients into odds ratios. To get the OR and confidence intervals, we just exponentiate the estimates and confidence intervals.
+Coefficients from the model are difficult to interpret since they are scaled in terms of logs. To interpret the results of a logistic regression model we can convert the coefficients into an odds ratio. To do this, we just exponentiate the estimates and confidence intervals.
 
 
 ```{r odds_ratio, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
@@ -215,11 +191,20 @@ confint.default(m) # CIs assuming normality
 ## odds ratios
 exp(coef(m))
 
+library(readr)
+
 ## OR and CI
-exp(cbind(OR = coef(m), ci))
+odds.ratio <- exp(cbind(OR = coef(m), ci))
+
+knitr::kable(x = odds.ratio, caption = "Odds Ratio for Factors")
 
 ```
 
+### Interpretation
+
+For the variable SEX, being a Man, i.e., going from 0 (Woman) to 1 (Man), the odds of “BMI<20” versus “20<BMI<25” or “BMI>25” combined are 0.48 greater, ceteris paribus.  
+
+[more interpretation...]
 
 
 
@@ -279,13 +264,28 @@ knitr::kable(x = region_divion, caption = "Stratifying Strategy 3")
 ```
 
 
+## Approach to the 2001 and 2004 Surveys
 
+The Belgian Health surveys conducted during 2001 and 2004 had non-proportional stratification at the Regional level. This means weights had to be used in stratifying strategies.
+
+During 2001, the commissioners of the BHIS requested oversampling of provinces, so that more precise estimates could be obtained. This strategy was extended in 2004, to oversampling of specific population groups, including the elderly and the German Community in the Walloon Region. The difficulty with oversampling with this methodolgy, is that a specific number of elderly need to be sampled, whilst maining a balance of the design principles. Design choices for one specific demographic have ripple effects across the whole survey design matrix. A decision to oversample a particular demographic means that the other demographics need to be reweighted, or else the oversampled demographic will be over-represented in the population estimands. 
 
 
 
 # Part Four - Missing Data in the Belgian Health Interview Survey
 
 ## Introduction
+
+[answer...]
+
+
+
+
+
+
+# References
+
+Demarest Stefaan, Van der Heyden Johan, Charafeddine Rana, Drieskens Sabine, Gisle Lydia, Tafforeau Jean, Archives of Public Health, The official journal of the Belgian Public Health Association, 2013, 71:24, https://doi.org/10.1186/0778-7367-71-24, Published: 18 September 2013
 
 
 
