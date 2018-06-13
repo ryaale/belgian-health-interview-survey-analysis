@@ -5,6 +5,8 @@ subtitle: "Exam Project"
 author: "Alexander James Ryan  r0693898       Adityavarna Dehaleesan  r0690673"
 date: "14/6/2018"
 output: pdf_document
+toc: true
+toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -12,22 +14,211 @@ setwd("~/Desktop/sampling-theory-assignment")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
 # Introduction
 
-# Part One - Critical Reading (perhaps we can split into two parts?)
+When a certain population is to be judged on a characteristic, indeed there is not enough resources or time to get a response from every person. In this case, what should we do? We take a sample, a fraction of the population, from the population and we obtain responses from them. We then perform the required analysis on the information obtained and generalize it over the entire population. This has to be done effectively and for that, we would have to consider a lot of factors while selecting the sample. There will be methods that will be suitable for most of the population but might have an issue that some parts of the population cannot access the survey. For instance, if there is a survey that involves obtaining responses by e-mail or some social media, what happens to a generation of people who are older in age who do not have an e-mail id or an account, what happens to people who do not have regular access to the internet. Well in that case, it is not a very good survey because that portion of the the population’s response matters as well. The more the number of people, indeed the better the result but at the same time the feasibility, human labour and time should be taken into consideration. There are surveys that are of various kinds and an optimal solution has to be found for each of them in order to avoid inaccurate results. 
+
+In surveys of all kinds, whether a person is being interviewed in person, or whether it is a survey one had to fill up while shopping in a supermarket, or whether it is an online survey, there will be individuals or candidates who might not respond properly or not respond at all that lead to issues. In this report, we will see how we encounter such issues and whether we have any correction measures that will provide us results that are desirable.
+
+# Part One -  Critique of Papers
+
+## The Problem of Non-Response in Sample Surveys
+
+### Summary
+
+In this paper, two aspects of survey methodologies are combined as two different stages of the methodology, to reduce non response rate. The first stage being a mail questionnaire sent to a set of individuals the second step being a follow-up of personal interviews. This is also seen as a cost-effective way of survey.
+ 
+### Critique 
+
+The method of combining the mail questionnaire and a follow-up personal interview is a considerably good and optimal solution. This reduces the non-response and is also a very cost-effective method.
+
+There are factors that might be affecting the exactitude of the response .Even in the cases with responses, their might be a portion of them whose response might not be the true reply. There may be many reasons for a person to not give the true response. In the mail questionnaire responses, if the questionnaire is too long, some candidates might just select options in a pattern(if it is a multiple choice questionnaire) or just write a standard reply just so that they get done with the questionnaire. This is not a good thing because this gives false information and thus leads to a faulty inference. This can be reduced by sending in short and thoughtful questionnaires so that it is good enough to not make anyone impatient about responding.
+
+There also is an issue when the mail does not get delivered properly. So that might increase the non-response rate.
+
+In the follow-up stage of face-to-face interview, one cannot be completely sure that the candidate will respond with complete honesty. There can be cases where he/she is not very comfortable sharing some sort of information with a stranger and might give completely dishonest replies, cases where the person responding might not give any sort of response at all, which just ends up increases the non-response rate. In such cases, the cost of conducting in-person surveys would increase but will not obtain useful data or information in return. 
+
+For the issue of a false response to the mail questionnaire, it can be made shorter and more crisp so that candidates do not get bored, lose focus and not end up answering patiently and correctly . For the case of the face-to-face interview, another follow up mail questionnaire can be sent. Telephone interviews might work better because the candidate is not physically in front of the interviewer and so the chances of being honest is more and they are also cost-effective as compared face-to-face interviews.
+
+### Conclusion
+
+The combining of methods and using them in different stages of survey seemed to be an optimal idea. However, it cannot turn out to be as ideal as expected and there will be some issues such as the truthfulness of the candidates’ response. This can be solved to an extent by efficiently preparing the questionnaire or by modifying the survey methodology.
+
+
+## An Overview of Prevention and Correction Methods for Non-Response in Surveys
+
+### Summary
+
+This article talks about prevention and correction of unit non-responses and item non-responses. A unit non-response means the person contacted refuses to to participate in the survey and an item non-response means that at the beginning the individual was willing to participate but during the survey refuses to answer certain questions. Prevention measures include shortening and crispening the questionnaire, be flexible to suit the respondent’s timings for the interview and correction methods involve calibration and imputation techniques.
+
+### Critique
+	
+The article has beautifully addressed the reason for issues that can be expected while survey and has suggested a set of prevention techniques and correction methods for non-response. The issues of lengthy questionnaires that tend to tire people and the topics that are sensitive and some respondents might hesitate to share some information with the interviewer has been discussed.
+
+In the case of person refusing to even participate in the survey, the response rate is said to increase in cases where any incentives or benefits were given to them. Interestingly, the type of interviewer also tends to have an impact of the response, for instance, a female interviewer is said to have a higher response rate, especially among the elderly sects of the population. If the reason for the non-response is something which can be helped, for example, if the person refuses to respond because he or she will not be available during the time of survey, the questionnaire dates could be changed so as to suit the respondent as well as to reduce the non-response rate. But in cases where the respondent refuses to answer because he or she does not like interviews, then there can be nothing much done from the interviewer’s side. Also, in cases where the respondent cannot answer, a proxy response can be obtained. If the respondent is a young child, he or she might not be aware of the topics that are asked about. In that case, another member of the household is asked instead. Some non-responses can be avoided by choosing the right person in the household for the survey because a question about job satisfaction cannot be asked to a ten year old or an eighty year old individual. Replacement procedure is suggested if none of the above works out. These addressmost of the prominent issues that are expected to rise in a unit non-response. Now incase we get a high rate of non-response, there are some really good correction measures that are suggested. Substitution of non-respondents with individuals that have similar characteristics is a way to solve this problem. A follow-up can be conducted to those who have not responded, response rate tends to get better when asked more times. In cases where the sample is divided into classes, weights are assigned to each classes in terms of inverse of response rate. Adjusting by calibration seem to be a plausible solution because in some cases, the responses obtained from other sources are more accurate than the respective respondent answering it. 
+
+There could be many causes for the respondent to refusing to answer any particular set of questions. Individuals might not be comfortable sharing some personal or sensitive information with an unknown person. Reducing the sensitivity of the questionnaire might help reduce the error. It is interesting to note that telephone surveys in those cases tend to have a higher response rate. The topic of the questionnaire might be correlated to characteristics of the audience such as the age, gender, economic status, etc. Interviewer behaviour is a huge factor to determine the response rate of the individual. In case the interviewer is in a haste and is not clear as to what he is trying to say, it might confuse the respondent and they might end up not answering the questions. Interestingly, it is mentioned that the study shows that  the difference between a study with properly formulated question, explanations and feedback, and the form with a minimum introduction is insignificant for the response rate. Indeed, Greater the effort lesser the non-response rate but we should also keep in mind the costs involved in doing the survey. In cases of item non-response, the missing data is sometime removed completely from the analysis. It mainly uses different kind of imputations, that is, associates a particular response with a respondent based on other factors such as reporting values of neighbouring responses or replacing missing values by the average value, and rectifies the error to its best
+	
+### Conclusion
+
+The damage that non-response may cause to the survey data determined a strong reaction from the researchers in the latest years. Preventions methods are very essential because no interviewer would be interested in losing valuable data. Any survey design that aims at giving results that are as accurate as possible aims at collecting as much data within the optimal limit. The quality of the survey questionnaire, the quality of behaviour of the interviewers are all factors that influence the response rate. Prevention measures such as reducing the length of the survey or keeping in mind sensitive topic questions and correction methods such an different imputations and calibrations are used to reduce the error. Thus, prevention measures can be taken for the survey to increase the response rate and if there exists considerable non-response,  a set of correction methods are essential and would be applied to the survey research to reduce the error and strengthen the validity of the results or interpretation.
+
+
+# Part Two - Analysis of Survey Data
 
 ## Introduction
 
 
+## Sampling from Survey Data
+
+Based on results found below(name of section?) the method of sampling from the Belgian population. We have proprtioned allocation based on the populations of the respective Provinces, and then devided between the 15% sample. We have taken into account the German Community, and allocated them a set 3% of the total allocation.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+province.sample <- read_delim("province.sample.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+
+knitr::kable(x = province.sample, caption = "Province Sampling")
+```
+
+The SAS code we will use to perform this sampling strategy is thus:
+
+
+title1 'Belgian Health Survey';
+title2 'Stratified Sampling of West-Vlaanderen';
+proc surveyselect data=bmi_voeg
+      method=sys rate=.02
+      seed=1234 out=SampleControl;
+   strata PROVINCE ALLOC=PROP;
+   control Type Usage;
+run;
+
+The method uses Simple Random Sampling, using the Floyd Ordered Hash Table Algorithm. It samples from the dataset, based on the Belgian Province variable, with a proportioned allocation.
+
+Missing data has been removed from the dataset.
 
 
 
 
 
-# Part Two - Modelling BMI
 
-## Introduction
 
+```{r sample, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+ds <- read.csv("bmi_voeg_1.csv", ";", header = TRUE)
+ds <- na.omit(ds)
+ds <- within(ds, {
+  REGION <- factor(REGION)
+  EDU3 <- factor(EDU3)
+  FA3 <- factor(FA3)
+  TA2 <- factor(TA2)
+  AGE7 <- factor(AGE7)
+  SEX <- factor(SEX)
+  VOEG <- factor(VOEG)
+  BMI_NUM <- factor(BMI_NUM)
+  FLA <- factor(FLA)
+  WAL <- factor(WAL)
+  BRU <- factor(BRU)
+  AGEGR1 <- factor(AGEGR1)
+  AGEGR2 <- factor(AGEGR2)
+  AGEGR3 <- factor(AGEGR3)
+  AGEGR4 <- factor(AGEGR4)
+  AGEGR5 <- factor(AGEGR5)
+  AGEGR6 <- factor(AGEGR6)
+  AGEGR7 <- factor(AGEGR7)
+  EDU <- factor(EDU)
+  INCOME <- factor(INCOME)
+  PROVINCE <- factor(PROVINCE)
+  SGP <- factor(SGP)
+  GHQ12 <- factor(GHQ12)
+  GHQBIN <- factor(GHQBIN)
+})
+
+
+
+
+library(readr)
+data <- read_delim("bmi_voeg_1.csv", ";", escape_double = FALSE, 
+                   col_types = cols(
+                      REGION = col_factor(levels = c("1", "2", "3")),
+                      EDU3 = col_factor(levels = c("1", "2", "3")),
+                      FA3 = col_factor(levels = c("1", "2", "3")),
+                      AGEGR1 = col_factor(levels = c("0","1")), 
+                      AGEGR2 = col_factor(levels = c("0","1")), 
+                      AGEGR3 = col_factor(levels = c("0","1")), 
+                      AGEGR4 = col_factor(levels = c("0","1")),
+                      AGEGR5 = col_factor(levels = c("0","1")),
+                      AGEGR6 = col_factor(levels = c("0","1")),
+                      AGEGR7 = col_factor(levels = c("0","1")),
+                      EDUPRIM = col_factor(levels = c("0","1")),
+                      EDUSEC = col_factor(levels = c("0","1")),
+                      EDUHIGH = col_factor(levels = c("0","1")),
+                      INCLOW = col_factor(levels = c("0","1")),
+                      INMED = col_factor(levels = c("0","1")),
+                      INCHIG = col_factor(levels = c("0","1")),
+                      PROVINCE = col_factor(levels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")),
+                      BMI_NUM = col_factor(levels = c("1", "2", "3")), 
+                      HH = col_number(), 
+                      ID = col_character(), 
+                      SEX = col_factor(levels = c("1", "2")), 
+                      WFIN = col_number(), 
+                      FLA=col_factor(levels = c("0","1")), 
+                      BRU=col_factor(levels = c("0","1")),
+                      QHQBIN=col_factor(levels = c("0","1")),
+                      QHQ12 = col_factor(levels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")),
+                      WAL=col_factor(levels = c("0","1"))),  
+trim_ws = TRUE)
+
+
+
+```
+
+
+## Modelling BMI
+
+First we devided the variable BMI into an ordinal categorical variable. Then a ordinal logistic regression model was built. We used a stepwise iterative procedure to incrementally add variables, with AIC minimisation the target goal. The model we are left with is:
+
+With a AIC score of 12973.46 and a residual deviance of 12939.46.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+coef <- read_delim("coef.m1.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+
+knitr::kable(x = coef, caption = "Ordinal Logistic Model 1")
+```
+
+
+
+
+```{r model, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(MASS)
+attach(data)
+
+formula1 <- 'BMI_NUM ~ REGION	+ EDU3 + FA3	+ TA2	+ AGE7 +	SEX	+ VOEG + FLA	+ AGEGR1	+ AGEGR2	+ AGEGR3 + 	AGEGR4	+ AGEGR5 + EDUPRIM	+ INCLOW	+ PROVINCE	+ SGP	+ GHQ12 + GHQBIN + BRU + WAL + AGEGR6 + AGEGR7 + EDUSEC + EDUHIGH + INCMED + INCHIG'
+
+formula2 <- 'BMI_NUM ~ REGION+EDU3+FA3+TA2+AGE7+SEX+FLA+AGEGR1+AGEGR2+AGEGR3+	AGEGR4+AGEGR5+SGP+BRU+WAL+AGEGR6+AGEGR7+EDU+INCOME'
+#+PROVINCE
+model1 <- polr(formula = BMI_NUM ~ 1, data = ds, Hess = TRUE)
+model1 <- step(model1, scope=BMI_NUM ~ REGION+EDU3+FA3+TA2+AGE7+SEX+FLA+AGEGR1+AGEGR2+AGEGR3+	AGEGR4+AGEGR5+SGP+BRU+WAL+AGEGR6+AGEGR7+EDU+INCOME, direction="both")
+summary(model1)
+```
+
+
+The coefficients from the model can be somewhat difficult to interpret because they are scaled in terms of logs. Another way to interpret logistic regression models is to convert the coefficients into odds ratios. To get the OR and confidence intervals, we just exponentiate the estimates and confidence intervals.
+
+
+```{r odds_ratio, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+m <- model1
+ci <- confint(m) # default method gives profiled CIs
+
+confint.default(m) # CIs assuming normality
+
+## odds ratios
+exp(coef(m))
+
+## OR and CI
+exp(cbind(OR = coef(m), ci))
+
+```
 
 
 
@@ -38,7 +229,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The choice on where to stratify and group populations is difficult. The goal is to create a sample that is representative of different levels of the population, so that at each level of analysis, we can form accurate estimands. Should the focus be on weighting regions, then perhaps some large cities in smaller regions become under-represented, and small cities in large regions become over-represented. Ultimately the strategy in which you choose to stratify a population, will over-represent some communities, and under-represent others, an implicit bias that is impossible to evade. The goal of sampling populations is to reduce this imbalance as much as possible, so every community is given a fairly weighted representation. 
 
-In this paper, we will discuss a variety of stratifyign strategies, to illustrate the complexity and variation in choosing sampling priorities. The first division is in the three different regions in Belgium, Wallonia, Brussels and Flanders.
+In this paper, we will discuss a variety of stratifying strategies, to illustrate the complexity and variation in choosing sampling priorities. The first division is in the three different regions in Belgium, Walloon, Brussels and Flanders.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
@@ -47,16 +238,16 @@ region_divion <- read_delim("region_divion.csv", ";", escape_double = FALSE, tri
 knitr::kable(x = region_divion, caption = "Proportioned weights at Region level")
 ```
 
-Given that we have to exclude 3% of our total 35% sample of the Wallonia Region for the Germany community, it is important how we allocate the remaining 32% amongst the remaining communities. Depending on how we allocate, we could bias the results, over representing some regions, whilst under-representing others.
+Given that we have to exclude 3% of our total 35% sample of the Walloon Region for the Germany community, it is important how we allocate the remaining 32% amongst the remaining communities. Depending on how we allocate, we could bias the results, over representing some regions, whilst under-representing others.
 
-For example, if we simply divided the 35% total allocation for the Wallonia Region, and divided by 5, we would be sampling 7% people from each region. Since for the Liege province, we have set aside 3% of that for the German community, we only have 4% left for the Arrondissements Huy (pop=189,661), Liege (pop=617,551), Verviers (pop=208,249). Liege is the largest Arrondissement in the Wallonia region, and we would find it severely under-represented if we use this stratifying strategy. 
+For example, if we simply divided the 35% total allocation for the Walloon Region, and divided by 5, we would be sampling 7% people from each region. Since for the Liege province, we have set aside 3% of that for the German community, we only have 4% left for the Arrondissements Huy (pop=189,661), Liege (pop=617,551), Verviers (pop=208,249). Liege is the largest Arrondissement in the Walloon region, and we would find it severely under-represented if we use this stratifying strategy. 
 
 
 ## Stratifying Strategy 1
 
 ### Each Region weighting is devided equally between Provinces and Arrondissements
 
-Of the 35% allocated to Flemish Region, each of the different Provinces receives 7%. This 7% is then proportionally allocated to each Care Sector based on their respective populations. The same strategy is then used for the Wallonia Region, but first the set allocation of 3% to the German community is taken from 35%, leaving 32% to be allocated to the Walloon Provinces Thus each Walloon Province receives 6.4%, which is then proportionally allocated to each Arrondissement based on their respective populations.
+Of the 35% allocated to Flemish Region, each of the different Provinces receives 7%. This 7% is then proportionally allocated to each Care Sector based on their respective populations. The same strategy is then used for the Walloon Region, but first the set allocation of 3% to the German community is taken from 35%, leaving 32% to be allocated to the Walloon Provinces Thus each Walloon Province receives 6.4%, which is then proportionally allocated to each Arrondissement based on their respective populations.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
@@ -67,7 +258,7 @@ knitr::kable(x = region_divion, caption = "Stratifying Strategy 1")
 
 ## Stratifying Strategy 2
 
-The 35% allocated to the Flemish Region is proportionally allocated to each Care Sector, based the proportion of their populations in respect to the total population of the Province. The same stratgey is used for the Wallonia region, and again, removing the 3% allocated to the German Community, leaving 32% to be proportionally allocated to the Arrondissements.
+The 35% allocated to the Flemish Region is proportionally allocated to each Care Sector, based the proportion of their populations in respect to the total population of the Province. The same strategy is used for the Walloon region, and again, removing the 3% allocated to the German Community, leaving 32% to be proportionally allocated to the Arrondissements.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
@@ -78,9 +269,14 @@ knitr::kable(x = region_divion, caption = "Stratifying Strategy 2")
 
 ## Stratifying Strategy 3
 
- 
+Using a combination of the two strategies above, the Provinces receive a weight based on respective population size of the total Region population. Then another weight is calculated, to proportion the Care Sectors/Arrondissements based on their population to their respective Province. The German community was allocated 3%, and removed from the stratifying strategy, so the Walloon region, excluding the German Community, was allocated 32% in total.
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+region_divion <- read_delim("option3_sample.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 
+knitr::kable(x = region_divion, caption = "Stratifying Strategy 3")
+```
 
 
 
